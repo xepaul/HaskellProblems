@@ -2,6 +2,8 @@
 
 ![CI](https://github.com/xepaul/HaskellProblems/actions/workflows/haskellMatix.yml/badge.svg)
 
+https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems
+
 # Tests
 
 Run using 
