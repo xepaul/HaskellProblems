@@ -1,13 +1,10 @@
 cabal-version:      3.0
-name:               Rosalind
+name:               HaskellProblems
 version:            0.1.0.0
 synopsis:
 
-
-
 extra-source-files:
     README.md
-
 
 common base
   build-depends:       base >=4.14 && <5
@@ -36,6 +33,12 @@ library WikiProblems-lib
     import: deps
     exposed-modules: WikiQuestions.Problem1
                      , WikiQuestions.Problem9
+                     , WikiQuestions.Problem61
+                     , WikiQuestions.Problem61A
+                     , WikiQuestions.Problem62
+                     , WikiQuestions.Problem62B
+                     , WikiQuestions.Problem64
+                     , WikiQuestions.WikiTypes
 
     build-depends:    containers
                       , extra

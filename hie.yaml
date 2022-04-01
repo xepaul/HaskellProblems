@@ -1,0 +1,7 @@
+cradle:
+  cabal:
+    - path: "src"
+      component: "HaskellProblems:lib:WikiProblems-lib"
+
+    - path: "test"
+      component: "HaskellProblems:test:WikiProblems-test"
