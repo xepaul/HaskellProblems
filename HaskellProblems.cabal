@@ -35,6 +35,7 @@ library WikiProblems-lib
     import: base
     import: deps
     exposed-modules: WikiQuestions.Problem1
+                     , WikiQuestions.Problem9
 
     build-depends:    containers
                       , extra
