@@ -1,0 +1,88 @@
+cabal-version:      3.0
+name:               Rosalind
+version:            0.1.0.0
+synopsis:
+
+
+
+extra-source-files:
+    README.md
+
+
+common base
+  build-depends:       base >=4.14 && <5
+
+common deps
+  ghc-options:  -Wall        
+                -- -Werror        
+                -fno-warn-incomplete-uni-patterns
+                -Wincomplete-patterns             
+                -Wincomplete-uni-patterns 
+                -Wincomplete-record-updates 
+                -Wmissing-fields   
+                -Wunused-top-binds
+                -Wunused-local-binds
+                -Wunused-pattern-binds
+                -- -Wunused-matches
+                -Wunused-do-bind
+                -- -Wunused-type-patterns
+                -Wunused-foralls
+                -Wunused-record-wildcards
+                -Wredundant-record-wildcards
+                -- -Wunused-packages
+ 
+library WikiProblems-lib
+    import: base
+    import: deps
+    exposed-modules: WikiQuestions.Problem1
+
+    build-depends:    containers
+                      , extra
+                      , lens                      
+                      , mtl
+                      , text
+                      , protolude
+                      , transformers
+                      , aeson
+                      , lens-aeson
+                      , raw-strings-qq
+                      , generic-lens
+                      , generic-lens-core                                           
+                      , these
+                      , time
+                      , hspec
+                      , QuickCheck
+                      , parsec
+                      , parsec-numbers
+                      , parsec-numeric
+                      , ilist   
+    hs-source-dirs:   src
+    default-language: Haskell2010
+    ghc-options: 
+              -Wall 
+              -fno-warn-incomplete-uni-patterns
+              -Wincomplete-patterns             
+              -Wincomplete-uni-patterns 
+              -Wincomplete-record-updates 
+              -Wmissing-fields     
+
+test-suite WikiProblems-test
+    import: base
+    import: deps
+    default-language: Haskell2010
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Spec.hs
+    ghc-options:  -main-is Spec
+    other-modules:
+      Spec.WikiQuestions.Wiki 
+    build-depends:   WikiProblems-lib
+                     , tasty                  
+                     , tasty-expected-failure
+                     , hedgehog               
+                     , tasty-hedgehog    
+                     , tasty-quickcheck   
+                     , hspec
+                     , containers
+                     , tasty-hunit
+                     , smallcheck  
