@@ -3,9 +3,9 @@
 {-# LANGUAGE LambdaCase #-}
 
 module WikiQuestions.Problem1 where
-
+-- | Wiki Problem 16. Drop every N'th element from a list.
 dropEvery :: [a] -> Int -> [a]
-dropEvery s c = go (c -1) s
+dropEvery ys c = go (c -1) ys
   where
     go :: Int -> [a] -> [a]
     go _ [] = []

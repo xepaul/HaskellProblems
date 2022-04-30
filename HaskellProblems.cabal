@@ -33,6 +33,7 @@ library WikiProblems-lib
     import: deps
     exposed-modules: WikiQuestions.Problem1
                      , WikiQuestions.Problem9
+                     , WikiQuestions.Problems
                      , WikiQuestions.Problem61
                      , WikiQuestions.Problem61A
                      , WikiQuestions.Problem62
@@ -70,7 +71,86 @@ library WikiProblems-lib
               -Wincomplete-record-updates 
               -Wmissing-fields     
 
-test-suite WikiProblems-test
+library LeetProblems-lib
+    import: base
+    import: deps
+    exposed-modules: 
+                       LeetCode.Prob1TwoSum
+                     , LeetCode.Prob3LengthOfLongestSubstring
+                     , LeetCode.Prob91DecodeWays
+                     , LeetCode.Prob62UniquePaths
+
+    build-depends:    containers
+                      , extra
+                      , lens                      
+                      , mtl
+                      , text
+                      , protolude
+                      , transformers
+                      , aeson
+                      , lens-aeson
+                      , raw-strings-qq
+                      , generic-lens
+                      , generic-lens-core                                           
+                      , these
+                      , time
+                      , hspec
+                      , QuickCheck
+                      , parsec
+                      , parsec-numbers
+                      , parsec-numeric
+                      , ilist   
+    hs-source-dirs:   src
+    default-language: Haskell2010
+    ghc-options: 
+              -Wall 
+              -fno-warn-incomplete-uni-patterns
+              -Wincomplete-patterns             
+              -Wincomplete-uni-patterns 
+              -Wincomplete-record-updates 
+              -Wmissing-fields     
+
+
+library InterviewProblems-lib
+    import: base
+    import: deps
+    exposed-modules: 
+                       InteviewQuestions.Q1
+                       InteviewQuestions.Q2
+
+    build-depends:    containers
+                      , extra
+                      , lens                      
+                      , mtl
+                      , text
+                      , protolude
+                      , transformers
+                      , aeson
+                      , lens-aeson
+                      , raw-strings-qq
+                      , generic-lens
+                      , generic-lens-core                                           
+                      , these
+                      , time
+                      , hspec
+                      , QuickCheck
+                      , parsec
+                      , parsec-numbers
+                      , parsec-numeric
+                      , ilist   
+    hs-source-dirs:   src
+    default-language: Haskell2010
+    ghc-options: 
+              -Wall 
+              -fno-warn-incomplete-uni-patterns
+              -Wincomplete-patterns             
+              -Wincomplete-uni-patterns 
+              -Wincomplete-record-updates 
+              -Wmissing-fields     
+
+
+
+test-suite Problems-test
     import: base
     import: deps
     default-language: Haskell2010
@@ -80,7 +160,9 @@ test-suite WikiProblems-test
     ghc-options:  -main-is Spec
     other-modules:
       Spec.WikiQuestions.Wiki 
+      Spec.LeetProblems.Leet
     build-depends:   WikiProblems-lib
+                     , LeetProblems-lib
                      , tasty                  
                      , tasty-expected-failure
                      , hedgehog               
