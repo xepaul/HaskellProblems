@@ -5,6 +5,7 @@ import Test.Tasty
 import Test.Tasty.Hedgehog       (HedgehogTestLimit (..))
 
 import Spec.WikiQuestions.Wiki  qualified
+import Spec.LeetProblems.Leet  qualified
 
 
 main :: IO ()
@@ -15,7 +16,8 @@ limit = HedgehogTestLimit (Just 5)
 
 tests :: TestTree
 tests = localOption limit $ testGroup "use cases" [
-     Spec.WikiQuestions.Wiki.tests
+     Spec.WikiQuestions.Wiki.tests,
+     Spec.LeetProblems.Leet.tests
     ]
 
     
