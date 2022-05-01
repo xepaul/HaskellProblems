@@ -2,6 +2,7 @@ cradle:
   cabal:
     - path: "src"
       component: "HaskellProblems:lib:WikiProblems-lib"
-
+    - path: "src"
+      component: "HaskellProblems:lib:GeekProblems-lib"
     - path: "test"
       component: "HaskellProblems:test:WikiProblems-test"
