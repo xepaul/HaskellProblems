@@ -1,38 +1,38 @@
-{-# LANGUAGE InstanceSigs #-}
 {-# LANGUAGE ImportQualifiedPost #-}
-module GeeksForGeeksProblems.Types where
+{-# LANGUAGE InstanceSigs #-}
+
+module GeeksForGeeksProblems.Tree where
+
 import Data.List qualified as List
+
 data Tree a
   = Empty
-  | Leaf a
   | Node (Tree a) a (Tree a)
-  deriving (Show,Eq)
+  deriving (Show, Eq)
 
 instance Foldable Tree where
   foldMap :: Monoid m => (a -> m) -> Tree a -> m
   foldMap _ Empty = mempty
-  foldMap f (Leaf x) = f x
   foldMap f (Node l x r) = foldMap f l <> f x <> foldMap f r
 
 instance Functor Tree where
   fmap :: (a -> b) -> Tree a -> Tree b
   fmap _ Empty = Empty
-  fmap f (Leaf x) = Leaf $ f x
   fmap f (Node l v r) = Node (fmap f l) (f v) (fmap f r)
 
 instance Traversable Tree where
   traverse :: Applicative f => (a -> f b) -> Tree a -> f (Tree b)
   traverse _ Empty = pure Empty
-  traverse f (Leaf a) = Leaf <$> f a
   traverse f (Node l x r) = Node <$> traverse f l <*> f x <*> traverse f r
 
 countElements :: Tree a -> Int
 countElements = foldr (\_ b -> b + 1) (0 :: Int)
 
 valuesAllUnique :: (Foldable t, Eq a) => t a -> Bool
-valuesAllUnique  t = let values = foldr (:) [] t
-                         noDups = List.nub values
-                     in length values == length noDups
+valuesAllUnique t =
+  let values = foldr (:) [] t
+      noDups = List.nub values
+   in length values == length noDups
 
 treeIsSorted :: (Ord a, Foldable t) => t a -> Bool
 treeIsSorted t = isSorted $ foldr (:) [] t
@@ -47,9 +47,9 @@ isSorted = isSortedBy (<=)
 isSortedBy :: (a -> a -> Bool) -> [a] -> Bool
 isSortedBy lte = loop
   where
-    loop []       = True
-    loop [_]      = True
-    loop (x:y:zs) = (x `lte` y) && loop (y:zs)
+    loop [] = True
+    loop [_] = True
+    loop (x : y : zs) = (x `lte` y) && loop (y : zs)
 
 -- >>> countElements treeEx1
 -- 7
@@ -67,37 +67,35 @@ isSortedBy lte = loop
 -- >>> foldl (+) 0 treeEx1
 -- 28
 
-
 treeEx1 :: Tree Integer
 treeEx1 =
   Node
     ( Node
-        (Leaf 1)
+        (Node Empty 1 Empty)
         2
-        (Leaf 3)
+        (Node Empty 3 Empty)
     )
     4
     ( Node
-        (Leaf 5)
+        (Node Empty 5 Empty)
         6
-        (Leaf 7)
+        (Node Empty 7 Empty)
     )
 
 treeEx1NotBST :: Tree Integer
 treeEx1NotBST =
   Node
     ( Node
-        (Leaf 1)
+        (Node Empty 1 Empty)
         2
-        (Leaf 3)
+        (Node Empty 3 Empty)
     )
     4
     ( Node
-        (Leaf 5)
+        (Node Empty 5 Empty)
         8
-        (Leaf 6)
+        (Node Empty 6 Empty)
     )
-
 
 treePreorder :: Tree Integer
 treePreorder =
@@ -105,7 +103,7 @@ treePreorder =
     Empty
     1
     ( Node
-        (Leaf 4)
+        (Node Empty 4 Empty)
         4
-        (Leaf 2)
+        (Node Empty 2 Empty)
     )

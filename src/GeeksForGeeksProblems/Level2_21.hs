@@ -2,7 +2,7 @@
 
 module GeeksForGeeksProblems.Level2_21 where
 
--- https://practice.geeksforgeeks.org/problems/check-for-bst/1
+-- https://practice.geeksforgeeks.org/problems/bst-to-greater-sum-tree/1/
 
 import GeeksForGeeksProblems.Types ( Tree(..) )
 
