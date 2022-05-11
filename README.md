@@ -4,6 +4,12 @@
 
 https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems
 
+https://www.geeksforgeeks.org/top-50-tree-coding-problems-for-interviews/
+
+https://leetcode.com/problemset/all/
+
+https://exercism.org
+
 # Dev Notes
 
 auto generate hie.yaml

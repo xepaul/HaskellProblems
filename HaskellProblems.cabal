@@ -60,7 +60,8 @@ library WikiProblems-lib
                       , parsec
                       , parsec-numbers
                       , parsec-numeric
-                      , ilist   
+                      , ilist 
+                      , either  
     hs-source-dirs:   src
     default-language: Haskell2010
     ghc-options: 
@@ -115,8 +116,12 @@ library InterviewProblems-lib
     import: base
     import: deps
     exposed-modules: 
-                       InteviewQuestions.Q1
-                       InteviewQuestions.Q2
+                       InterviewQuestions.TreeWalker2
+                       InterviewQuestions.TransactionOptimizer
+                       InterviewQuestions.TransactionOptimizer2
+                       InterviewQuestions.CustomList
+                       InterviewQuestions.JsonSchemaValidation
+                       InterviewQuestions.TreeZipper2
 
     build-depends:    containers
                       , extra
@@ -137,7 +142,8 @@ library InterviewProblems-lib
                       , parsec
                       , parsec-numbers
                       , parsec-numeric
-                      , ilist   
+                      , ilist  
+                      , either 
     hs-source-dirs:   src
     default-language: Haskell2010
     ghc-options: 
@@ -207,8 +213,10 @@ test-suite Problems-test
     other-modules:
       Spec.WikiQuestions.Wiki 
       Spec.LeetProblems.Leet
+      Spec.GeekProblems.GeekSpec
     build-depends:   WikiProblems-lib
                      , LeetProblems-lib
+                     , GeekProblems-lib
                      , tasty                  
                      , tasty-expected-failure
                      , hedgehog               

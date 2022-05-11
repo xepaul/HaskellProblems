@@ -5,4 +5,4 @@ cradle:
     - path: "src"
       component: "HaskellProblems:lib:GeekProblems-lib"
     - path: "test"
-      component: "HaskellProblems:test:WikiProblems-test"
+      component: "HaskellProblems:test:Problems-test"
