@@ -85,6 +85,7 @@ followThenReplaceOrAdd v t d =
       (rootZipper t)
       d
 
+t1 :: Tree Char
 t1 =
   Node
     ( Node

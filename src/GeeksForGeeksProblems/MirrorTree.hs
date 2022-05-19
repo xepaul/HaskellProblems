@@ -1,6 +1,6 @@
 {-# LANGUAGE InstanceSigs #-}
 
-module GeeksForGeeksProblems.Level1_3 where
+module GeeksForGeeksProblems.MirrorTree where
 
 -- https://practice.geeksforgeeks.org/problems/mirror-tree/1
 
