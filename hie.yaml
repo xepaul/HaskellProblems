@@ -6,3 +6,7 @@ cradle:
       component: "HaskellProblems:lib:GeekProblems-lib"
     - path: "test"
       component: "HaskellProblems:test:Problems-test"
+    - path: "src"
+      component: "HaskellProblems:lib:ExercismProblems-lib"
+    - path: "test"
+      component: "HaskellProblems:test:specTests"

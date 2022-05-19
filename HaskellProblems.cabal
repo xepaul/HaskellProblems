@@ -160,14 +160,58 @@ library GeekProblems-lib
     exposed-modules: 
                        GeeksForGeeksProblems.Types
                        GeeksForGeeksProblems.Level1_1
-                       GeeksForGeeksProblems.Level1_2
-                       GeeksForGeeksProblems.Level1_3
+                       GeeksForGeeksProblems.Level1_2                       
                        GeeksForGeeksProblems.Level1_4
                        GeeksForGeeksProblems.Level1_7
                        GeeksForGeeksProblems.Level1_8
                        GeeksForGeeksProblems.Level2_21
+                       GeeksForGeeksProblems.BoundaryTraversalOfBinaryTree
+                       GeeksForGeeksProblems.LeftViewOfBinaryTree
+                       GeeksForGeeksProblems.MinimumElementInBST
+                       GeeksForGeeksProblems.MirrorTree
+                       GeeksForGeeksProblems.TopViewOfBinaryTree
 
 
+
+    build-depends:    containers
+                      , extra
+                      , lens                      
+                      , mtl
+                      , text
+                      , protolude
+                      , transformers
+                      , aeson
+                      , lens-aeson
+                      , raw-strings-qq
+                      , generic-lens
+                      , generic-lens-core                                           
+                      , these
+                      , time
+                      , hspec
+                      , QuickCheck
+                      , parsec
+                      , parsec-numbers
+                      , parsec-numeric
+                      , ilist   
+    hs-source-dirs:   src
+    default-language: Haskell2010
+    ghc-options: 
+              -Wall 
+              -fno-warn-incomplete-uni-patterns
+              -Wincomplete-patterns             
+              -Wincomplete-uni-patterns 
+              -Wincomplete-record-updates 
+              -Wmissing-fields     
+
+
+
+
+library ExercismProblems-lib
+    import: base
+    import: deps
+    exposed-modules: 
+      Exercism.Zipper
+      Exercism.Brackets 
 
     build-depends:    containers
                       , extra
@@ -226,3 +270,48 @@ test-suite Problems-test
                      , containers
                      , tasty-hunit
                      , smallcheck  
+
+
+test-suite specTests
+  type: exitcode-stdio-1.0
+  main-is: SpecRootSpec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -Wall
+  build-depends:
+      base ==4.*
+    , hspec ==2.*
+                         
+                     , WikiProblems-lib
+                     , LeetProblems-lib
+                     , GeekProblems-lib
+                     , ExercismProblems-lib
+                     , tasty                  
+                     , tasty-expected-failure
+                     , hedgehog               
+                     , tasty-hedgehog    
+                     , tasty-quickcheck   
+                     , hspec
+                     , containers
+                     , tasty-hunit
+                     , smallcheck                      
+                     , lens
+                     , lens-aeson                
+                     , containers
+                     , extra                                   
+                     , parsec
+                     , split
+                     , QuickCheck
+                     , aeson
+                     , tasty-th
+                     , HUnit
+                     , filepath
+                     ,text                
+                     , unordered-containers
+                     ,mtl
+  other-modules:
+        Spec.Exercism.ZipperSpec
+        
+    
+  default-language: Haskell2010
+  build-tool-depends: hspec-discover:hspec-discover == 2.*

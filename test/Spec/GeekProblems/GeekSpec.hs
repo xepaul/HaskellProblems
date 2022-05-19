@@ -1,12 +1,18 @@
 {-# LANGUAGE ImportQualifiedPost #-}
 
-module Spec.GeekProblems.GeekSpec (tests) where
+module Spec.GeekProblems.GeekSpec (tests, spec) where
 
 import GeeksForGeeksProblems.Level1_1 (treeHeight)
-import GeeksForGeeksProblems.Types (Tree (..), valuesAllUnique, treeIsSorted)
-import Test.Hspec (shouldBe)
+import GeeksForGeeksProblems.Types (Tree (..), treeIsSorted, valuesAllUnique)
+import Test.Hspec (Spec, it, shouldBe)
 import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.HUnit (testCase)
+
+spec :: Spec
+spec = do
+  it "dummy" $
+    False
+      `shouldBe` False
 
 tests :: TestTree
 tests = testGroup "Tests" [unitTests]
@@ -16,7 +22,7 @@ unitTests =
   testGroup
     "Geek tests"
     [ testCase "Dummy" $ True `shouldBe` True,
-      testCase "Height of leaf is 1" $ treeHeight (Leaf (1::Int)) `shouldBe` 1,
+      testCase "Height of leaf is 1" $ treeHeight (Leaf (1 :: Int)) `shouldBe` 1,
       testCase "verify all values unique" $ valuesAllUnique treeEx1 `shouldBe` True,
       testCase "verify all values not unique" $ valuesAllUnique treeEx1NotUnique `shouldBe` False,
       testCase "verify sorted" $ treeIsSorted treeEx1 `shouldBe` True,
