@@ -7,7 +7,7 @@ import Test.Tasty.Hedgehog       (HedgehogTestLimit (..))
 import Spec.WikiQuestions.Wiki  qualified
 import Spec.LeetProblems.Leet  qualified
 import Spec.GeekProblems.GeekSpec qualified
-
+import Spec.InterviewQuestions.Match1Spec qualified
 
 main :: IO ()
 main = defaultMain tests
@@ -20,6 +20,7 @@ tests = localOption limit $ testGroup "use cases" [
      Spec.WikiQuestions.Wiki.tests,
      Spec.LeetProblems.Leet.tests,
      Spec.GeekProblems.GeekSpec.tests
+    
     ]
 
     
