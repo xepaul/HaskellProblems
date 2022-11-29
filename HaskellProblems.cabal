@@ -122,6 +122,8 @@ library InterviewProblems-lib
                        InterviewQuestions.CustomList
                        InterviewQuestions.JsonSchemaValidation
                        InterviewQuestions.TreeZipper2
+                       InterviewQuestions.Match1
+                       InterviewQuestions.Match2
 
     build-depends:    containers
                       , extra
@@ -258,9 +260,12 @@ test-suite Problems-test
       Spec.WikiQuestions.Wiki 
       Spec.LeetProblems.Leet
       Spec.GeekProblems.GeekSpec
+      Spec.InterviewQuestions.Match1Spec 
+      Spec.InterviewQuestions.Match2Spec 
     build-depends:   WikiProblems-lib
                      , LeetProblems-lib
                      , GeekProblems-lib
+                     , InterviewProblems-lib
                      , tasty                  
                      , tasty-expected-failure
                      , hedgehog               
@@ -286,6 +291,7 @@ test-suite specTests
                      , LeetProblems-lib
                      , GeekProblems-lib
                      , ExercismProblems-lib
+                     , InterviewProblems-lib
                      , tasty                  
                      , tasty-expected-failure
                      , hedgehog               
@@ -311,6 +317,8 @@ test-suite specTests
                      ,mtl
   other-modules:
         Spec.Exercism.ZipperSpec
+        Spec.InterviewQuestions.Match1Spec 
+        Spec.InterviewQuestions.Match2Spec 
         
     
   default-language: Haskell2010
